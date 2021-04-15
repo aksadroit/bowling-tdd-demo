@@ -10,14 +10,13 @@ public class BowlingGame {
 		
 	}
 	
-	public void calculateTotalNumberOfPinsDown(int pinDownCount) {
-		score += pinDownCount;
-	}
-
 	public Integer getTotalScore() {
 		int roll = 0;
 		for (int i = 0; i < 10; i++) {
-			if (scorePerRoll[roll] + scorePerRoll[roll+1] == 10) {
+			if (scorePerRoll[roll] == 10) {
+				// it a strike
+				score += 10 + scorePerRoll[roll+2] + scorePerRoll[roll+3];
+			} else if (scorePerRoll[roll] + scorePerRoll[roll+1] == 10) {
 				// it is spare
 				score += 10 + scorePerRoll[roll+2];
 			} else {

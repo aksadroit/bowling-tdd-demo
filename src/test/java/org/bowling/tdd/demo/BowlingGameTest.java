@@ -40,6 +40,15 @@ class BowlingGameTest {
 		
 		assertEquals(22, game.getTotalScore());
 	}
+	
+	@Test
+	public void computeScoreForGameWithAStrike() {
+		int score[] = {10,0, 3,4, 1,1, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0};
+		
+		setPinDownsPerRoll(score);
+		
+		assertEquals(34, game.getTotalScore());
+	}
 
 	private void setPinDownsPerRoll(int[] score) {
 		for (int i = 0; i < score.length; i++) {
