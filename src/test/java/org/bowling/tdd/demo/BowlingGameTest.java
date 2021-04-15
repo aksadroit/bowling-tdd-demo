@@ -16,20 +16,35 @@ class BowlingGameTest {
 	
 	@Test
 	public void computeScoreForGameOfAllOnes() {
-		for (int i = 0; i < 20; i++) {
-			game.calculateTotalNumberOfPinsDown(1);
-		}
+		int score[] = {1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
+		
+		setPinDownsPerRoll(score);
+		
 		assertEquals(20, game.getTotalScore());
 	}
 	
 	@Test
 	public void computeScoreForGameWithSpareAndRestAllOnes() {
-		game.calculateTotalNumberOfPinsDown(5);
-		game.calculateTotalNumberOfPinsDown(5);
-		for (int i = 2; i <= 20; i++) {
-			game.calculateTotalNumberOfPinsDown(1);
-		}
+		int score[] = {5,5, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
+		
+		setPinDownsPerRoll(score);
+		
 		assertEquals(29, game.getTotalScore());
+	}
+	
+	@Test
+	public void computeScoreForGameWithSpareFollowedByDifferentScore() {
+		int score[] = {5,5, 3,4, 1,1, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0};
+		
+		setPinDownsPerRoll(score);
+		
+		assertEquals(22, game.getTotalScore());
+	}
+
+	private void setPinDownsPerRoll(int[] score) {
+		for (int i = 0; i < score.length; i++) {
+			game.setPinsDownPerRoll(i, score[i]);
+		}
 	}
 
 }
