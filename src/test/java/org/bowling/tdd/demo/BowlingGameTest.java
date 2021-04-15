@@ -58,6 +58,15 @@ class BowlingGameTest {
 		
 		assertEquals(51, game.getTotalScore());
 	}
+	
+	@Test
+	public void computeScoreForGameWithASpareinLastFrame() {
+		int score[] = {10,0, 3,4, 1,1, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 5,5, 6};
+		
+		setPinDownsPerRoll(score);
+		
+		assertEquals(50, game.getTotalScore());
+	}
 
 	private void setPinDownsPerRoll(int[] score) {
 		for (int i = 0; i < score.length; i++) {
