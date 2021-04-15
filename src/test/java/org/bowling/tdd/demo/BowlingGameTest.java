@@ -49,6 +49,15 @@ class BowlingGameTest {
 		
 		assertEquals(34, game.getTotalScore());
 	}
+	
+	@Test
+	public void computeScoreForGameWithAStrikeinLastFrame() {
+		int score[] = {10,0, 3,4, 1,1, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 10,0, 6, 1};
+		
+		setPinDownsPerRoll(score);
+		
+		assertEquals(51, game.getTotalScore());
+	}
 
 	private void setPinDownsPerRoll(int[] score) {
 		for (int i = 0; i < score.length; i++) {

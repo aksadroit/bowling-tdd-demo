@@ -3,7 +3,7 @@ package org.bowling.tdd.demo;
 public class BowlingGame {
 	
 	private Integer score = 0;
-	private int[] scorePerRoll = new int[20];
+	private int[] scorePerRoll = new int[22];
 	
 	public void setPinsDownPerRoll(int rollCount, int pinsDown) {
 		scorePerRoll[rollCount] = pinsDown;
